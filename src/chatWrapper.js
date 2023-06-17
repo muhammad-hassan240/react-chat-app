@@ -17,7 +17,7 @@ const pubnubKeys = {
 };
 const pubnub = new PubNub({
     ...pubnubKeys,
-    userId: uuid || users[1].id,
+    userId: uuid || users[0].id,
     fileUploadPublishRetryLimit: 0,
     autoNetworkDetection: true,
     restore: true,
@@ -88,7 +88,7 @@ const ChatWrapper = () => {
         pubnub.objects.getUUIDMetadata({}, (status) => {
             if (status.error) {
                 pubnub.objects.setUUIDMetadata({
-                    data: users[1],
+                    data: users[0],
                     uuid,
                 });
             }
